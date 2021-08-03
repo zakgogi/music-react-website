@@ -13,3 +13,8 @@ button {
 input {
   margin: 5px;
 }
+
+#artistInfo {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}

@@ -7,11 +7,11 @@ const Artist = () => {
     const [genre, setGenre ] = useState('Rap');
     const [artistImage, setArtistImage ] = useState('https://ichef.bbci.co.uk/news/976/cpsprodpb/E886/production/_119662595_hi059078964.jpg')
     return (
-        <section>
-            <h1>{name}</h1>
-            <h2>{genre}</h2>
+        <section id="artistInfo">
+            <h1>Artist: {name}</h1>
+            <h2>Genre: {genre}</h2>
             <img id="artist" src={artistImage}></img>
-            <p>{artistDesc}</p>
+            <p>Description: {artistDesc}</p>
         </section>
     )
 }

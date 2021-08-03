@@ -51,3 +51,8 @@ form input {
 .colouredDot:after {
   border-bottom: 35px solid gold;
 }
+
+.albumContainer {
+  border-top: 1px solid black;
+  margin-bottom: 20px;
+}

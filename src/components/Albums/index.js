@@ -24,7 +24,7 @@ const Albums = () => {
     const renderAlbums = () => {
         return albums.map(a => 
             (
-             <section>
+             <section class="albumContainer">
                  <span id={a.id} class="dot"></span>
                  <span id={a.id} class="dot"></span>
                  <span id={a.id} class="dot"></span>
@@ -45,6 +45,7 @@ const Albums = () => {
 
     return (
         <section>
+            <h2>Albums</h2>
             { renderAlbums() }
         </section>
     )
