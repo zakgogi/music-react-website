@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 
 const reactButtons = () => {
-    const [ liked, setLiked ] = useState('unliked');
-    const [ disliked, setDisliked ] = useState('undisliked'); 
+    const [ liked, setLiked ] = useState(false);
+    const [ disliked, setDisliked ] = useState(false); 
 
     const userLiked = (currentButton) => {
-        if (liked === 'unliked'){
+        if (!liked){
             currentButton.style.background = "green";
-            setLiked('liked');
+            setLiked(true);
         } else {
             currentButton.style.background = "none";
-            setLiked('unliked');
+            setLiked(false);
         }
     }
 
     const userDisliked = (currentButton) => {
-        if (disliked === 'undisliked'){
+        if (!disliked){
             currentButton.style.background = "red";
-            setDisliked('disliked');
+            setDisliked(true);
         } else {
             currentButton.style.background = "none";
-            setDisliked('undisliked');
+            setDisliked(false);
         }
     }
 
