@@ -2,3 +2,14 @@
   height: 300px;
   width: 450px;
 }
+
+button {
+  padding: 2px;
+  margin: 5px;
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+input {
+  margin: 5px;
+}

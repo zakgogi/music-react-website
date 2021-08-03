@@ -6,20 +6,24 @@ const reactButtons = () => {
 
     const userLiked = (currentButton) => {
         if (!liked){
-            currentButton.style.background = "green";
+            currentButton.style.background = "lightgreen";
+            currentButton.style.transform = "scale(1.1)";
             setLiked(true);
         } else {
-            currentButton.style.background = "none";
+            currentButton.style.background = "lightgrey";
+            currentButton.style.transform = "scale(1.0)";
             setLiked(false);
         }
     }
 
     const userDisliked = (currentButton) => {
         if (!disliked){
-            currentButton.style.background = "red";
+            currentButton.style.background = "lightsalmon";
+            currentButton.style.transform = "scale(1.1)";
             setDisliked(true);
         } else {
-            currentButton.style.background = "none";
+            currentButton.style.background = "lightgrey";
+            currentButton.style.transform = "scale(1.0)";
             setDisliked(false);
         }
     }

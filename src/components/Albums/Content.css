@@ -1,11 +1,39 @@
 .dot {
-  height: 25px;
-  width: 25px;
-  background-color: #bbb;
-  border-radius: 50%;
+  margin: 50px 5px;
+  position: relative;
   display: inline-block;
-  margin-top: 10px;
-  margin-right: 5px;
+  width: 0px;
+  height: 0px;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid gray;
+  border-left: 50px solid transparent;
+  transform: rotate(35deg);
+}
+.dot:before {
+  border-bottom: 40px solid gray;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -23px;
+  left: -33px;
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+.dot:after {
+  position: absolute;
+  display: block;
+  top: 1px;
+  left: -53px;
+  width: 0px;
+  height: 0px;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid gray;
+  border-left: 50px solid transparent;
+  transform: rotate(-70deg);
+  content: "";
 }
 
 form input {
@@ -13,5 +41,13 @@ form input {
 }
 
 .colouredDot {
-  background-color: green;
+  border-bottom: 35px solid gold;
+}
+
+.colouredDot:before {
+  border-bottom: 40px solid gold;
+}
+
+.colouredDot:after {
+  border-bottom: 35px solid gold;
 }
