@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
-import { Music, Home, ActivityRender } from './pages';
+import { Music, Home, ActivityRender, Chat } from './pages';
 import { Header } from './Layout';
 import './App.css';
 
@@ -16,8 +16,11 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/activity">
+        <Route path="/activity">
           <ActivityRender />
+        </Route>
+        <Route path="/chat">
+          <Chat />
         </Route>
       </Switch>
     </>
