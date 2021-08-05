@@ -16,11 +16,12 @@ const Chatbox = () => {
     function addChatMessage(e){
         console.log(notesEnd);
         e.preventDefault();
-        const input = e.target[0].value;
+        let input = e.target[0].value;
         const generatedDate = generateDate();
         if (input){
             setChat(prevChat => prevChat.concat({message:`${input}`, date: `${generatedDate}`}));
         }
+        e.target[0].value = "";
         
     }
 
