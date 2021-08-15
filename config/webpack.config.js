@@ -43,7 +43,9 @@ const config = {
       {
         test: /\.(png|svg|jpg|gif|pdf)$/,
         use: ['file-loader'],
-      }, // transpile image files
+        // loader: "webpack-remove-debug"
+      },
+// transpile image files
     ],
   },
 };

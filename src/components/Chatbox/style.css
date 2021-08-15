@@ -43,11 +43,21 @@
   background-color: pink;
 }
 
-#message p {
+#message p,
+#receivedMessage p {
   padding: 4px;
   color: white;
   text-align: left;
   margin-left: 2%;
+}
+
+#receivedMessage {
+  border: 1px solid black;
+  width: 80%;
+  border-radius: 20px;
+  margin-left: 4px;
+  margin-top: 4px;
+  background-color: rgb(25, 28, 189);
 }
 
 /* #avatar {
