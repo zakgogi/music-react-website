@@ -9,17 +9,22 @@ const Chatbox = () => {
     const [ user, setUser ] = useState("");
     // const [ yourMessages, setYourMessages ] = useState([]);
     const notesEnd = useRef();
-
+    const userRef = useRef("");
     useEffect(() => {
         notesEnd.current.scrollIntoView({ behavior: "smooth" })
     }, [chat])
 
-
+    useEffect(() => {
+        userRef.current = user;
+        console.log(userRef.current);
+    }, [user]);
+    
     //Listen for socket event
     useEffect(() => {
         const generatedDate = generateDate();
         socket.on('chat', (data) => {
-            if (data.username === user){
+            console.log(user);
+            if (data.username === userRef.current){
                 setChat(prevChat => prevChat.concat({message: data.message, date: `${generatedDate}`, sender: "you"}));
             } else {
                 setChat(prevChat => prevChat.concat({message: data.message, date: `${generatedDate}`, sender: data.username}));
@@ -32,17 +37,18 @@ const Chatbox = () => {
         return `${date.toString().slice(4,10)}, ${date.toString().slice(16, 21)}`;
     }
 
-    function updateUser(e){
-        let userInput = e.target.value;
+    function setUsername(e){
+        e.preventDefault();
+        let userInput = e.target[0].value;
+        e.target[0].value = "";
         setUser(userInput);
     }
 
+
     function addChatMessage(e){
         e.preventDefault();
-        currentUser = e.target[0].value;
-        console.log(currentUser);
-        let chatInput = e.target[1].value;
-        e.target[1].value = "";
+        let chatInput = e.target[0].value;
+        e.target[0].value = "";
         socket.emit("chat", {
             message: chatInput,
             username: user
@@ -55,8 +61,7 @@ const Chatbox = () => {
             if (item.sender === "you"){
                 return (
                     <section key={index} id="message">
-                        <p>{item.message}<span class="hiddenDate">{item.date}</span></p>
-                        
+                        <p>You: {item.message}<span class="hiddenDate">{item.date}</span></p>
                     </section>
                 )
             } else {
@@ -71,6 +76,11 @@ const Chatbox = () => {
     }
 
     return (
+        <>
+        <form onSubmit={setUsername} id="usernameSection">
+            <input id="usernameInput" type="text" placeholder="Your username here"></input>
+            <input type="submit"></input>
+        </form>
         <section id="chatBox">
             <section id="chatMessages">
                 { chat.length !==0 ? <h4>{generateDate()}</h4> : <h4>No messages have been sent yet..</h4> }
@@ -78,11 +88,11 @@ const Chatbox = () => {
                 <span ref={notesEnd}></span>
             </section>
             <form onSubmit={addChatMessage}>
-                <input onChange={updateUser} id="usernameInput" type="text" placeholder="Your username here"></input>
                 <input id="chatInput" type="text"></input>
                 <input id="chatSubmit" type="submit"></input>
             </form>
         </section>
+        </>
     )
 }
 
